@@ -1,24 +1,52 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+@font-face {
+  font-family: 'belarusFont';
+  src: url('../belarus/Belarus.otf') format('opentype');
 }
 
+body {
+  font-family: 'belarusFont';
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas:
+        ". header ."
+        ". top ."
+        "hat pants sunglasses"
+        ". shoes .";
+}
+
+.header { grid-area: header; }
+.top { grid-area: top; }
+.pants { grid-area: pants; }
+.shoes { grid-area: shoes; }
+.hat { grid-area: hat; }
+.sunglasses { grid-area: sunglasses; }
+
 h1 {
+  font-size: 100px;
   text-align: center;
-  color: #2E604D;
+  color: #141414;
 }
 
 h2 {
-  color: #E09B9C;
+  font-size: 60px;
+  color: #273DB4;
+  text-align: center;
+}
+
+.heading {
+  font-size: 30px;
+  color: #273DB4;
   text-align: center;
 }
 
 .box {
   margin: auto;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 200px;
@@ -27,10 +55,14 @@ h2 {
 }
 
 .button {
-  background-color: #F9CAB8;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #273DB4;
   border: 2px solid black;
   border-radius: 5px;
-  color: #2E604D;
+  color: #273DB4;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -44,6 +76,24 @@ h2 {
 }
 
 .success:hover {
-  background-color: #737F69;
+  background-color: #C50900;
   color: white;
+}
+
+.photo {
+  width: 200px;
+  height: 200px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
 }

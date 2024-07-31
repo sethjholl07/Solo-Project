@@ -1,28 +1,52 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.scss";
+import axios from "axios";
+import ImageUploader from "../components/ImageUpload.jsx";
 
-function Box() {
-  return (
-    <form className="box" action="http://localhost:3000/upload" method="PUT">
-      <input type="file" id="myFile" name="filename" />
-    </form>
-  );
-}
+// Set the base URL for Axios
+axios.defaults.baseURL = 'http://localhost:3030';
 
-export default function App() {
-  return (
-    <div className="container">
-      <h1>Outfit Vizualizer</h1>
-      <Box />
-      <h2>TOP</h2>
-      <Box />
-      <h2>PANTS</h2>
-      <Box />
-      <h2>SHOES</h2>
-      <form action="http://localhost:3000/upload" method="PUT">
-        <input className="button success" type="submit" name="submit" value="SUBMIT"/>
-      </form>
-    </div>
+class App extends Component {
+  render() {
+    return (
+      <div className="container">
+        <div className="header">
+        <h1>Outfit Vizualizer</h1>
+        </div>
+        
+        <div className="heading top">
+        <h2>TOP</h2>
+        <ImageUploader />
+        </div>
+        
+        <div className="row hat">
+          <div className="item">
+            <h2>HAT</h2>
+            <ImageUploader />
+          </div>
+        </div>
+
+        <div className="row pants">
+          <div className="item">
+            <h2>PANTS</h2>
+            <ImageUploader />
+          </div>
+        </div>
+
+        <div className="row sunglasses">
+          <div className="item">
+            <h2>SUNGLASSES</h2>
+            <ImageUploader />
+          </div>
+        </div>
+
+        <div className="heading shoes">
+        <h2>SHOES</h2>
+        <ImageUploader />
+        </div>
+      </div>
     );
+  }
 }
 
+export default App;
